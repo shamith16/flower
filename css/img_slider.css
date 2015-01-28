@@ -1,0 +1,24 @@
+/*=================================*/
+/* Nivo Slider Demo
+/* November 2010
+/* By: Gilbert Pellegrom
+/* http://dev7studios.com
+/*=================================*/
+
+.theme-default #slider {
+    margin:5px;
+    width:470px; /* Make sure your images are the same size */
+    height:200px; /* Make sure your images are the same size */
+    margin-bottom: 30px;
+}
+.theme-pascal.slider-wrapper,
+.theme-orman.slider-wrapper {
+    margin-top:10px;
+}
+
+/*====================*/
+/*=== Other Styles ===*/
+/*====================*/
+.clear {
+	clear:both;
+}
