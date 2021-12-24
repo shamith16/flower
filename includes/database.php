@@ -15,11 +15,11 @@ class MySQLDatabase {
   }
 
 	public function open_connection() {
-		$this->connection = mysql_connect(DB_SERVER, DB_USER, DB_PASS);
+		$this->connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS);
 		if (!$this->connection) {
 			die("Database connection failed: " . mysql_error());
 		} else {
-			$db_select = mysql_select_db(DB_NAME, $this->connection);
+			$db_select = mysqli_select_db($this->connection, DB_NAME);
 			if (!$db_select) {
 				die("Database selection failed: " . mysql_error());
 			}
@@ -35,7 +35,7 @@ class MySQLDatabase {
 
 	public function query($sql) {
 		$this->last_query = $sql;
-		$result = mysql_query($sql, $this->connection);
+		$result = mysqli_query( $this->connection, $sql);
 		$this->confirm_query($result);
 		return $result;
 	}
@@ -55,11 +55,11 @@ class MySQLDatabase {
 	
 	// "database-neutral" methods
   public function fetch_array($result_set) {
-    return mysql_fetch_array($result_set);
+    return mysqli_fetch_array($result_set);
   }
   
   public function num_rows($result_set) {
-   return mysql_num_rows($result_set);
+   return mysqli_num_rows($result_set);
   }
   
   public function insert_id() {
